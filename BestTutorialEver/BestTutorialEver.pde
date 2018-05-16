@@ -1,5 +1,5 @@
 Population test;
-PVector goal  = new PVector(400, 10);
+PVector goal  = new PVector(400, 20);
 
 
 void setup() {
@@ -7,7 +7,10 @@ void setup() {
   frameRate(100);//increase this to make the dots go faster
   test = new Population(1000);//create a new population with 1000 members
 
-  background(255);
+  background(0, 0, 255);
+  fill(255);
+  rect(10, 10, 780, 780);
+   
 
   //draw goal
   fill(255, 0, 0);
@@ -16,9 +19,9 @@ void setup() {
   //draw obstacle(s)
   fill(0, 0, 255);
 
-  rect(350, 200, 800, 10);
-  rect(0, 400, 450, 10);
-  rect(350, 600, 800, 10);
+  rect(300, 200, 800, 10);
+  rect(0, 400, 500, 10);
+  rect(300, 600, 800, 10);
 
   // store a bitmap of the arena
   loadPixels();

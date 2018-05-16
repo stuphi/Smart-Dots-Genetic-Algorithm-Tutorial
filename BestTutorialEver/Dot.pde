@@ -14,7 +14,7 @@ class Dot {
     brain = new Brain(1000);//new brain with 1000 instructions
 
     //start the dots at the bottom of the window with a no velocity or acceleration
-    pos = new PVector(width/2, height- 10);
+    pos = new PVector(width/2, height- 20);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0);
   }
@@ -55,13 +55,10 @@ class Dot {
   void update() {
     if (!dead && !reachedGoal) {
       move();
-      if (pos.x< 2|| pos.y<2 || pos.x>width-2 || pos.y>height -2) {//if near the edges of the window then kill it 
+      if (pixels[int(pos.x) + int(pos.y) * 800] == color(0, 0, 255)) {//if hit obstacle or wall //if (pos.x< 2|| pos.y<2 || pos.x>width-2 || pos.y>height -2) {//if near the edges of the window then kill it 
         dead = true;
       } else if (dist(pos.x, pos.y, goal.x, goal.y) < 5) {//if reached goal
-
         reachedGoal = true;
-      } else if (pixels[int(pos.x) + int(pos.y) * 800] == color(0, 0, 255)) {//if hit obstacle
-        dead = true;
       }
     }
   }
